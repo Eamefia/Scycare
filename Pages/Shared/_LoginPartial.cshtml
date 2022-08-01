@@ -1,0 +1,19 @@
+@using Microsoft.Extensions.Options
+@using Microsoft.Identity.Web
+@using Azure
+@inject IOptions<MicrosoftIdentityOptions> AzureADB2COptions
+
+@{
+    var options = AzureADB2COptions.Value;
+}
+
+<ul class="navbar-nav">
+
+    <li class="nav-item">
+        <a class="nav-link text-white" href="https://scycare-spa-dev.azurewebsites.net/patientsportal">Login as Patient</a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link text-white" href="https://scycare-spa-dev.azurewebsites.net/doctorsportal"> Login in as Doctor</a>
+    </li>
+</ul>

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title style="color: white">@ViewData["Title"] | Scycare</title>
+
+        <!--Stylesheets-->
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic.min.css"
+            integrity="sha512-LeCmts7kEi09nKc+DwGJqDV+dNQi/W8/qb0oUSsBLzTYiBwxj0KBlAow2//jV7jwEHwSCPShRN2+IWwWcn1x7Q=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/scycare.css">
+        <link rel="stylesheet" href="css/site.css" />
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/animation.css">
+
+        <!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+        <!-- Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CPoppins:400,500" rel="stylesheet">
+        <link href="common-css/ionicons.css" rel="stylesheet">
+
+        <!--Favicon-->
+        <link rel="icon" type="image/png" href="images/favicon.ico">
+    </head>
+
+    <body>
+        <partial name="_FlyOut" />
+        <div onclick="closeMenu()" id="overlay"></div>
+        <header>
+            <partial name="_NavigationBar" />
+        </header>
+
+        @RenderBody()
+
+        <footer>
+            <partial name="_Footer" />
+        </footer>
+
+        <script src="lib/jquery/dist/jquery.min.js"></script>
+        <script src="common-js/jquery-3.1.1.min.js"></script>
+        <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/site.js" asp-append-version="true"></script>
+        @* Owl Carousel JS *@
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        @* <script src="common-js/scripts.js"></script> *@
+
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+
+</html>

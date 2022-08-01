@@ -1,0 +1,159 @@
+﻿@page
+@model CheckoutPageModel
+@using Scycare.Web.Pages.Models
+@using Scycare.Web.Services
+
+
+
+<component type="typeof(Components.CheckoutHeroComponent)"  render-mode="Static" />
+<div  class="container main-section" id="checkout-container">
+                <div class="container" id="policy-header-note">
+                <div class="input-group flex flex3 sc-search">
+                    <input id="search-bar" onkeyup="search_selectedItemsl()" type="text" name="search" class="form-control" placeholder="search">
+                    <img src="./images/icons/search-solid.svg" alt="">
+                </div>
+                   
+         <span>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="sc-breadcrumb-item "><a href="/scylab"><img src="./images/icons/home-icon.svg" alt=""> Home  </a></li>
+                    <li class="breadcrumb-item checkout-breadcrumb"> </li>
+                    <li class="sc-breadcrumb-item checkout-breadcrumb"><a href="AllLabTest"> All Lab Tests</a></li>
+                    <li class="sc-breadcrumb-item checkout-breadcrumb active" aria-current="page"> Checkout Page</a></li>
+
+
+                </ol>
+            </nav>
+        </span>
+        <hr />
+        <div class="flex flex3" id="checkoutpage-title">
+            <h1>All Lab Tests</h1> 
+                <input type="submit" value="Go to Checkout" class="btn sc-btn-checkout" onclick="goToBilling()">
+        </div>
+        <hr />
+    
+        </div>
+            <div class="checkout-figuers flex flex3">
+            <lable id="total-test">@Model.GetTotalTestCount() labs selected</lable>
+            <lable id="total-price"> GHS @Model.GetPriceSum() </lable> 
+            
+        </div>
+        
+   @foreach( LabTestModel Item in Model.CheckoutItems)
+   
+    {
+        if(Item != null)
+        {
+            <section class= "accord_section selected" id= "acord-section">
+                <div class="accordions accordion" id="accordions">
+                    <div id=@Item.Id class="accordion-item selected-items">
+                        <button  id=@Item.Id class="accordion-title" id="checkout-labtest" >
+                            @Item.PackageName <br /> 
+                            <span>GHC</span> 
+                            <b>@Item.Price.ToString("0.00")</b>
+                            <span href="#" data-id="@Item.Id" class="bin child" onClick="window.location.reload(true)" id=@Item.Id></span>
+                        </button>
+                        <div class="accordion-panel">
+                            <div class="panel-inner" id="checkout-panel-inner">
+                                <div class="panel-content" id="checkout-panel-content"> 
+                                    @Item.TestDescription
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </section>
+        }
+        else
+        {
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        }
+
+}
+    <button  id="view_More" type="submit" onclick="myFunction()" class="btn sc-btn-checkout">View More</button>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+
+        document.addEventListener("DOMContentLoaded", function(){
+            var labtestItems = document.getElementsByClassName("accordion-title");
+            var ViewMoreButton = document.getElementById("view_More");
+            if(labtestItems.length <= 5){
+                ViewMoreButton.style.display = "none";
+            }
+        });
+
+  
+document.getElementById("view_More").onclick = (e) => {
+
+  let tags = document.querySelectorAll("section");
+
+  tags.forEach( tag => {
+      tag.className = "accord_section";
+  });
+
+};
+
+
+  $(document).ready(function () {
+          $('.bin').on('click', function(e) {
+              e.preventDefault();
+               var link = $(e.target);
+               console.log(link);
+               console.log(link.attr('data-id'));
+               const id = link.attr('data-id');
+               fetch(`/api/Checkout/${id}`,{
+                    method:'DELETE'
+               })  
+                   .then((response) => response.json())
+                   .then(json => { 
+                        console.log ("success");
+                        var myobj = document.getElementById(id);
+                        console.log(myobj);
+                        myobj.remove();
+           
+              })
+          });
+    });
+
+    // JavaScript search bar
+function search_selectedItemsl() {
+    let input = document.getElementById('search-bar').value
+    input=input.toLowerCase();
+    let x = document.getElementsByClassName('selected-items');
+    
+    for (i = 0; i < x.length; i++) {
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display="none";
+        }
+        else {
+            x[i].style.display="inline";				
+        }
+    }
+}
+
+function goToBilling(){
+    window.location.href = "/checkoutpayment";
+}
+
+</script>
+
+@{
+    @functions{
+        public ItemsService itemsService = new ItemsService();
+      
+        public void OnPostDelete(string id)
+        {
+           
+         itemsService.DeleteCheckoutItems(id);
+        }
+
+    }
+
+
+
+}
+

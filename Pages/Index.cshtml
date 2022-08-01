@@ -1,0 +1,251 @@
+﻿@page
+@model IndexModel
+@{
+ ViewData["Title"] = "Home page";
+}
+
+<div id="home">
+    <section class="hero" id="hom e-hero">
+        <div class="container">
+            <div id="hero-text" class="col-lg-8">
+                <h1>
+                    Quality <span class="highlight">Healthcare</span> at the comfort of your home.
+                </h1>
+                <a class="lead">Hassle-free healthcare delivery</a>
+            </div>
+            <a href="#learnmorecontent" class="ml-3 btn sc-bg-secondary">
+                Learn More
+                <span>
+                    <svg width="20" height="15">
+                        <image href="./images/icons/arrow-right.svg" />
+                    </svg>
+                </span>
+            </a>
+        </div>
+    </section>
+    <div id="learnmorecontent" class="container main-section">
+        <div class="row pt-3">
+            <div class="col-md-9">
+                <h2>
+                    <span class="sc-text-secondary">Simple and Secure healthcare,</span>
+                    <span class="sc-text-primary">giving you a better life</span>
+                </h2>
+            </div>
+            <div class="col-md-3">
+                <img src="./images/icons/Shield.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <div id="services" class="container main-section">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="d-flex flex-wrap">
+                    <div class="service-item">
+                        <img src="./images/icons/Consultation.svg" alt="">
+                        <a class="sc-text-primary item-name" onclick="getItem(4)">Online Consultation</a>
+                        <a class="coming-soon">Coming soon</a>
+                    </div>
+
+                    <div id="scylab" class="service-item">
+                        <img src="./images/icons/ScyLab.svg" alt="">
+                        <a class="sc-text-primary item-name" onclick="getItem(1)">ScyLab</a>
+                    </div>
+
+                    <div class="service-item">
+                        <img src="./images/icons/ScyMed.svg" alt="">
+                        <a class="sc-text-primary item-name" onclick="getItem(2)">ScyMed</a>
+                        <a class="coming-soon">Coming soon</a>
+                    </div>
+
+                    <div class="service-item">
+                        <img src="./images/icons/Continous Monitoring.svg" alt="">
+                        <a class="sc-text-primary item-name" onclick="getItem(3)">Continuous Monitoring</a>
+                        <a class="coming-soon">Coming soon</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 right">
+                <div class="feature-details">
+                    <h4 id="item-title" class="sc-text-primary">ScyLab</h4>
+                    <p id="item-detail">
+                        ScyLab is a one-stop online medical platform where you can also book diagnostic tests 
+                        including blood tests, full-body checkups, and other preventive health check-ups at an
+                        affordable cost, right from the comfort of your home. We have partnered with trusted & 
+                        certified labs that arrange for a sample pick-up from the convenience of your home. 
+                        They also provide you with timely reports.
+                    </p>
+                    <p id="item-detail" class="online-consultion-security" style="margin-top:-30px; display: none;">
+                         Connect securely anytime anywhere with 24/7 doctors available just for you. Your online Consultations are completely private and confidential
+                    </p>
+                </div>
+                
+                <div class="labtest-btn" id="online-consultation-buttons">
+                    <button class="btn sc-bg-secondary mr-2" onclick="goToScylab()">Book Lab test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mobile-app" class="container main-section">
+        <div class="row">
+            <div class="col-md-8 mr-auto me-auto">
+                <h2>Fully access the uniqueness that comes with <span class="sc-text-secondary">Scycare</span></h2>
+                <ul class="feature-list">
+                    <li>Book same-day appointments</li>
+                    <li>Chat with your health team</li>
+                    <li>Prescriptions at your doorstep</li>
+                    <li>Reliable Healthcare</li>
+                    <li>Quality care at the comfort of your home</li>
+                </ul>
+                <div class="col">
+                    <h5>Be the first to get our mobile app</h5>
+                    <form method="post" id="phone-number">
+                        <div class="input-group sc-border-secondary phone-input">
+                            <span class="input-group-text">+233</span>
+                            <input type="tel" name="" class="form-control">
+                        </div>
+                        <input type="button" value="Text Me the App" class="btn sc-btn-secondary" onclick="sendEmail()">
+                    </form>
+                    <p id="contact-sent-notification"></p>
+                    <p id="stores">AVAILABLE IN <a href="#">APP STORE</a> AND <a href="#">GOOGLE PLAYSTORE</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block"><img src="./images/Phone.png" alt="mobile app" class="phone"></div>
+        </div>
+    </div>
+    <div id="partners" class="main-section">
+        <div class="row">
+            <img src="./images/icons/MOH.svg" alt="">
+            <img src="./images/icons/GHS.svg" alt="">
+            <img src="./images/icons/HeFRA.svg" style="width: 250px;" alt="">
+            <img src="./images/icons/MDC.svg" alt="">
+            <img src="./images/icons/PC.svg" alt="">
+        </div>
+    </div>
+    <div id="testimonials" class="main-section">
+        @* <img src="/images/icons/BGPattern.png" alt=""> *@
+        <div class="container">
+            <div class="col">
+                <h5>WHAT OUR PATIENTS ARE SAYING</h5>
+
+                <div class="owl-carousel owl-theme owl-loaded">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage">
+                            <div class="owl-item">
+                                <div class="col testionial-item">
+                                    <div class="row quote-icon">
+                                        <span>
+                                            <img src="./images/icons/quotes-left.svg" alt="">
+                                        </span>
+                                    </div>
+                                    <div class="row testimony">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis quo
+                                        quasi, sapiente
+                                        fuga
+                                        porro.
+                                    </div>
+                                    <div class="row testimonial-footer">
+                                        <span>
+                                            <div class="client-info">
+                                                <div>Drew Drew</div>
+                                                <div>Patient, Scycare</div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="col testionial-item">
+                                    <div class="row quote-icon">
+                                        <span>
+                                            <img src="./images/icons/quotes-left.svg" alt="">
+                                        </span>
+                                    </div>
+                                    <div class="row testimony">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis quo
+                                        quasi, sapiente
+                                        fuga
+                                        porro.
+                                    </div>
+                                    <div class="row testimonial-footer">
+                                        <span>
+                                            <div class="client-info">
+                                                <div>Drew Drew</div>
+                                                <div>Patient, Scycare</div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.0.20/tinymce.min.js"></script>
+   <script src="https://smtpjs.com/v3/smtp.js"></script>
+<script type="text/javascript"> 
+
+
+    function getItem(item){
+        var scylabDetail = "ScyLab is a one-stop online medical platform where you can also book diagnostic tests including blood tests, full-body checkups, and other preventive health check-ups at an affordable cost, right from the comfort of your home. We have partnered with trusted & certified labs that arrange for a sample pick-up from the convenience of your home. They also provide you with timely reports.";
+       var continousMonitoring = "It’s tough to remember to refill every month, especially in the case of chronic diseases. Scycare's subscription service will be launched soon. This will not only ensure that you are reminded of your refills but also make sure that you are never out on your medical essentials. You will get a reminder every month and your order will be delivered at your convenience!";
+       var ScymedDetail = "We cater to all your pharmaceutical needs and make ordering medicines online a hassle-free experience for you. We connect you only with registered retail pharmacies & certified diagnostic labs. We ensure that healthcare is affordable to all and make the process of ordering online simple.";
+       var consultationDetails = "Scycare offers top Telemedicine service as a service in Ghana. We have a diverse team of experienced doctors with different specialties to cater for our patients' needs. Our doctors listen to you patiently and only prescribe what is appropriate and necessary. Save up to 70% in time and money spent for consultation.";
+       var itemTittle = document.getElementById("item-title");
+       var itemDetail = document.getElementById("item-detail");
+        if(item == 1){
+            itemTittle.innerHTML = "ScyLab";
+            itemDetail.innerHTML = scylabDetail;
+             document.getElementById("online-consultation-buttons").style.display = "";
+            document.querySelector(".online-consultion-security").style.display = "none";
+        }
+        else if(item == 2){
+             itemTittle.innerHTML = "ScyMed";
+            itemDetail.innerHTML = ScymedDetail;
+            document.getElementById("online-consultation-buttons").style.display = "none";
+            document.querySelector(".online-consultion-security").style.display = "none";
+        }
+        else if(item == 3){
+             itemTittle.innerHTML = "Continous Monitoring";
+            itemDetail.innerHTML = continousMonitoring;
+            document.getElementById("online-consultation-buttons").style.display = "none";
+            document.querySelector(".online-consultion-security").style.display = "none";
+        }
+        else if(item == 4){
+             itemTittle.innerHTML = "Online Consultation";
+            itemDetail.innerHTML = consultationDetails;
+            document.getElementById("online-consultation-buttons").style.display = "none";
+            document.querySelector(".online-consultion-security").style.display = "";
+        }
+    }
+
+    function goToScylab(){
+        window.location.href = "/scylab";
+    }
+
+
+    function sendEmail() {  
+      var phoneNum = document.getElementById("phone-number").value;
+      Email.send({
+        Host: "smtp.gmail.com",
+        Username: "rockbrain700@gmail.com",
+        Password: "rkvhwxsopzngcvov",
+        To:"scycare@gmail.com",
+        From:"elikplimamefia@gmail.com",
+        Subject: "Text Me The App",
+       
+        Body: `ScycareUser <br/><br/> Phone: ${phoneNum}`,
+       
+      })    
+        .then(function () {
+        document.getElementById("phone-number").reset();
+        document.getElementById("contact-sent-notification").innerHTML = "Scycare has successfully added your number";
+        });
+        
+
+    }
+</script>

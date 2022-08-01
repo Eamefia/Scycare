@@ -1,0 +1,40 @@
+﻿@page
+@using Scycare.Web.Pages.Models
+@model Scycare.Web.Pages.CustomerSupportPolicyModel
+@{
+}
+@{
+    var CustomerSupportPolicy = new List<AccordionElement>{
+        new AccordionElement
+        {
+            Title ="What Our Support Service Covers    ",
+            Details =  "We only support our service and products sold on our  Scycare app and website. Our support  service includes assistance  with product installation and use. If you need help with regard to the use of the App and services, please check the FAQs of the extension. Your questions might have been answered already. If it hasn't, please submit a support ticket.",
+        },
+        new AccordionElement
+        {
+            Title ="Fixing bugs",
+            Details =   "We will fix any defects in our products as quickly as possible after they are brought to our attention. We will also try to provide a solution via our support or helpdesk for errors as part of our products update. If you think you have found, please let us know.",
+        },
+        new AccordionElement
+        {
+            Title ="Support Channels",
+             Details ="We provide Support Services through our Helpdesk – this can be Live Chat, phone call or Email based support. We may ask you to send us your login details if we need them to assist you. Information shared with us are and will be confidential. that is, only you and our support team will see your tickets.",
+        },
+        new AccordionElement
+        {
+            Title ="Other support options",
+            Details =   "Our frequently answered questions (or FAQs) contain answers to common questions and may help answer questions you may have. These FAQs are relatively generic and may not be directly relevant to your specific query or challenge."
+        }
+    };
+ }
+<component type="typeof(Components.PrivacyHeroComponent)" param-H1='"Customer Support Policy "' render-mode="Static" />
+    <section  class="container main-section">
+        <div class="container" id="policy-header-note">
+            <h2>Scycare Customer Support Policy </h2>
+                <p>This Support Policy describes what support you can expect from us in regards to SCYCARE.
+                    If you have questions about this Support Policy or do not agree with it, please Contact Us before using the Website. We may amend this Support Policy from time to time, so check this page to ensure that you are aware of any changes. This Support Policy is effective from 23rd July 2021.
+                    By using any part of the Website or providing personal information to us, you consent to us processing it as set out in this Support Policy.
+                </p>
+                <component type="typeof(Components.AccordionComponent)" param-AccordionElements=@CustomerSupportPolicy render-mode="Static" />
+        </div>
+    </section>

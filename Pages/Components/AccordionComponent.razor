@@ -1,0 +1,23 @@
+﻿@page "/AccordionComponent"
+@using Scycare.Web.Pages.Models
+   @foreach(var element in AccordionElements)
+{
+      <div class="accordions accordion" id="accordions">
+                <div class="accordion-item">
+                    <button class="accordion-title">@element.Title</button>
+                    <div class="accordion-panel">
+                        <div class="panel-inner">
+                            <div class="panel-content">
+                                @((MarkupString)@element.Details)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+}
+@code {
+
+    [Parameter]
+    public List<AccordionElement> AccordionElements { get; set; }
+
+}

@@ -1,0 +1,208 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Scycare.Web
+build_property.RootNamespace = Scycare.Web
+build_property.ProjectDir = C:\Users\Manuel\Desktop\Projects\Scycare.web\src\Scycare.Web\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Manuel\Desktop\Projects\Scycare.web\src\Scycare.Web
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Components/AccordionComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50c1xBY2NvcmRpb25Db21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Components/CheckoutHeroComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50c1xDaGVja291dEhlcm9Db21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Components/PrivacyHeroComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50c1xQcml2YWN5SGVyb0NvbXBvbmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/AboutUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXRVcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/AllLabTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWxsTGFiVGVzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/CheckoutPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXRQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/CheckoutPayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXRQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/ContactUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdFVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Continuous_Monitoring_page.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGludW91c19Nb25pdG9yaW5nX3BhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/CovidPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ292aWRQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/CustomerSupportPolicy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJTdXBwb3J0UG9saWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/DoctorsHomepage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG9jdG9yc0hvbWVwYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/DoctorsHompage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG9jdG9yc0hvbXBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/FrequentlyAskedQuestions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRnJlcXVlbnRseUFza2VkUXVlc3Rpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Online_Consultation_page.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT25saW5lX0NvbnN1bHRhdGlvbl9wYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Partnership_page.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFydG5lcnNoaXBfcGFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Regulations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVndWxhdGlvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/ReturnPolicy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmV0dXJuUG9saWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Scylab.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2N5bGFiLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/ScylabTestDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2N5bGFiVGVzdERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/ScyMed_page.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2N5TWVkX3BhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_AllLabTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9BbGxMYWJUZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_CheckoutBillingNavImage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9DaGVja291dEJpbGxpbmdOYXZJbWFnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_CheckoutNavBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9DaGVja291dE5hdkJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_CoronavirusPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9Db3JvbmF2aXJ1c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_FlyOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9GbHlPdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9Gb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_FrequentlyAskedPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9GcmVxdWVudGx5QXNrZWRQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_Hero.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9IZXJvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_NavigationBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9OYXZpZ2F0aW9uQmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_PrivacyPolicyContent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9Qcml2YWN5UG9saWN5Q29udGVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_PrivacyPolicyHero.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9Qcml2YWN5UG9saWN5SGVyby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_ScylabHero.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9TY3lsYWJIZXJvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_ServicesPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9TZXJ2aWNlc1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_SignUpPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9TaWduVXBQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/Partials/_ViewAllLabTestPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXFBhcnRpYWxzXF9WaWV3QWxsTGFiVGVzdFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/TermsAndCondition.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVybXNBbmRDb25kaXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/VerifyPayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmVyaWZ5UGF5bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/ViewAllLabTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld0FsbExhYlRlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/VulnerabilityDisclosurePolicy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVnVsbmVyYWJpbGl0eURpc2Nsb3N1cmVQb2xpY3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Manuel/Desktop/Projects/Scycare.web/src/Scycare.Web/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-wxb4q0o1k6

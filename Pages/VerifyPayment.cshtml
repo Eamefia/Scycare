@@ -1,0 +1,21 @@
+﻿@page
+@model Scycare.Web.Pages.VerifyPaymentModel
+@{
+}
+
+<component type="typeof(Components.CheckoutHeroComponent)" render-mode="Static" />
+<div id="very-payment">
+    <div class="very-payment-items">
+        <h5 class="mb-5">Thank you</h5>
+        <img src="./images/check.png" alt="check" class="pb-5" />
+        <p class="pb-5">@Model.Success</p>
+        <button type="button" class="btn btn-outline-primary" onclick="goToHome()">Back to Home</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function goToHome(){
+    window.location.href = "/scylab";
+}
+
+</script>

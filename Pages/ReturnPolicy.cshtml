@@ -1,0 +1,89 @@
+﻿@page
+@using Scycare.Web.Pages.Models
+@model Scycare.Web.Pages.ReturnPolicyModel
+
+@{
+    var ReturnsPolicy = new List<AccordionElement>{
+
+        new AccordionElement
+        {
+            Title ="Terms And Conditions",
+            Details=@"
+
+    <ol>
+
+        <li>
+
+            SCYCARE is not able to deliver the Services and/or Products for any reason.In case You wish to seek a refund of the advance paid by You because You believe that SCYCARE Service is not as per the specification provided on the Application, please write to support@scycare.com.SCYCARE will process refund of the unexpended amount provided internal investigation confirms the claim made by you.
+
+        </li>
+
+        <li>
+
+            If the patient cancels a booking more than two hours before scheduled appointment time an automated refund will be issued after deducting transaction fee, if any.
+
+        </li>
+
+        <li>
+
+            If patient cancels a booking within two hours of scheduled appointment time 50% refund will be done.
+
+        </li>
+
+        <li>
+
+            In case of no show by the patient during appointed time no refund will be generated.
+
+        </li>
+
+        <li>
+
+            If the doctors do not show up during appointed time full refund will be issued.
+
+        </li>
+
+        <li>
+
+            If Appointment is taken within two hours of scheduled time and doctor does not show up, full refund will be done.
+
+        </li>
+
+        <li>
+
+            If the patient does not show up during appointed time no refund will be issued.
+
+        </li>
+
+        <li>
+
+            If the consultation does not happen due to any special circumstance including technical issues, an option to request refund will be available to the patient for a period of 7 days but the issuance of full or part refund will be on the sole discretion of SCYCARE.
+
+        </li>
+
+        <li>
+
+            If appointment / consultation is cancelled due to technical issues by doctor than full refund will be made.
+
+        </li>
+
+        <li>
+
+            All refunds will be subject to a transaction charge that will be deducted while making a refund. In case You wish to seek a refund of the advance paid by You, please write to support@scycare.com. We will process refund of the unexpended amount at the discretion of SCYCARE on case-to-case basis.
+
+        </li>
+
+    </ol>",
+           
+        }
+    };
+ }
+<component type="typeof(Components.PrivacyHeroComponent)" param-H1='"Cancellation, Returns and Refund Policy"' render-mode="Static" />
+    <section  class="container main-section">
+        <div class="container" id="policy-header-note">
+            <h2>Cancellation, Returns and Refund Policy</h2>
+                <p>For internet-based subscription Services, You are free to cancel the Service at any time. SCYCARE shall refund any unexpended advance fees paid by You at the time of cancellation of the Service. 
+                    In case You wish to seek a refund of the advance paid by You because You do not agree with a modification to the Agreement, please write to info@scycare.comWe will process refund of the unexpended amount.
+                    Subjected to terms under clause ‘Use of Services’ of this Agreement for all Services, SCYCARE shall provide refund of any unexpended advance fees paid by You if:</p>
+                <component type="typeof(Components.AccordionComponent)" param-AccordionElements=@ReturnsPolicy render-mode="Static" />
+        </div>
+    </section>

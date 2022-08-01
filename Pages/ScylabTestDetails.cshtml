@@ -1,0 +1,89 @@
+@page
+@using Scycare.LandingPage.Pages
+@model ScylabTestDetailsModel
+
+
+
+
+<component type="typeof(Components.CheckoutHeroComponent)" render-mode="Static" />
+<div id="scylab">
+    <section id="scylab-content-details" class="container main-section">
+        <div id="content-head">
+            <nav  aria-label="breadcrumb">
+                <ol class="sc-breadcrumb">
+                    <li class="sc-breadcrumb-item"><a href="/scylab">Home</a></li>
+                    <li class="sc-breadcrumb-item"><a href="#">@Model.labTest.PackageName</a></li>
+                </ol>
+            </nav>
+
+            <input id="labtest-id" type="hidden" value="@Model.labTest.Id" />
+            <button class="btn sc-button sc-bg-secondary sc-fit-c" onclick="sendLabTestDetails()">Book this Test</button>
+        </div>
+
+        <div id="content-body" class="col">
+            <h2 id="test-title" class="sc-text-gray-3">@Model.labTest.PackageName   @*Full blood count (FBC)*@</h2>
+            <div id="test-details">
+                <strong class="test-details-properties">Also known as</strong>
+                <p class="test-details-property-text">FBC; CBC (complete blood count); FBE (full blood examination); FBP (full blood picture); CBE; CBP
+                The Full Blood Count (FBC) is a group of tests performed on a single blood sample that tell us about the different kinds of cells in the blood.</p>
+
+
+                <strong class="test-details-properties mt-3">When to get tested</strong>
+                <p class="test-details-property-text">The FBC is routinely ordered by doctors because it gives a useful overall picture of someone’s health. 
+                    It is also used to help diagnose a range of specific health problems and to monitor treatments when they are known to affect blood cells.
+                    Your doctor may decide to check on your FBC from time to time because changes in the number of the different cells can be caused by many important conditions.</p>
+
+                     <strong class="test-details-properties-blue mt-3">Sample Required</strong>
+                <p class="test-details-property-text">@Model.labTest.RequiredSample sample drawn from a vein in your arm</p>
+
+                     <strong class="test-details-properties mt-3">Test preparation needed</strong>
+                <p class="test-details-property-text">None</p>
+
+                     <strong class="test-details-properties mt-3">What results can show</strong>
+                <p class="test-details-property-text">The FBC counts the number, types, shapes and sizes of the various cells in the blood, including:</p>
+                 <ul>
+                     <li class="test-details-result">Red blood cells (RBC), which carry oxygen around your body</li>
+                     <p class="test-details-property-text">The test measures red blood cell numbers, size and how much haemoglobin they contain. 
+                         This can show if you don’t have enough iron or certain vitamins that are needed to make haemoglobin which takes oxygen to your tissues (anaemia).</p>
+
+                    <li class="test-details-result">White blood cells (WBC), which fight infection and play a role in immune responses such as inflammation and allergies.</li>
+                     <p class="test-details-property-text">Looking at the various different types of white cells is called a WBC Differential. Each cell type has its own job to do in 
+                         fighting infection. Some mainly fight against bacteria, others are involved in allergic responses, while others produce antibodies, 
+                         especially against viruses. Increased numbers of certain WBCs can help to pinpoint if an infection is caused by a bacteria or virus. 
+                         Some types of cancer (leukaemias) cause the body to make lots of one type of white cell, meaning the other cell types can’t be made properly.</p>
+
+                    <li class="test-details-result">Platelets, which are important in blood clotting.</li>
+                     <p class="test-details-property-text">Low numbers of platelets can lead to excessive bruising or bleeding.</p>
+                 </ul>
+                 <p class="test-details-property-text">@Model.labTest.TestDescription</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script type="text/javascript">
+     function sendLabTestDetails()
+      {   
+       var inputElem = document.getElementById("labtest-id");
+        var checkedValues = [];
+
+          checkedValues.push(inputElem.value);
+          console.log(inputElem.value);
+
+         fetch('/api/Checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(checkedValues),
+    })
+    .then(data => {
+      console.log('Success:', checkedValues);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+    window.location.href = "/checkoutpage";
+
+}
+</script>

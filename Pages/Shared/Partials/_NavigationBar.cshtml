@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg bg-lg-transparent bg navbar-dark py-3 text-white fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" asp-area="" asp-page="/Index">
+            <svg width="180" height="45">
+                <image href="/images/icons/BetaLogo.svg" />
+            </svg>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse nav-bg" id="navbarContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown position-static d-flex flex-column align-items-center">
+                    <a class="nav-link" href="#" data-toggle="dropdown">
+                        Coronavirus
+                        <span>
+                            <svg width="10" height="10">
+                                <image href="/images/icons/down-arrow.svg" />
+                            </svg>
+                        </span>
+                    </a>
+                    <div class="nav-dot"></div>
+
+                    <partial name="_CoronavirusPartial" />
+                </li>
+
+                <li class="nav-item dropdown position-static d-flex flex-column align-items-center">
+                    <a class="nav-link" href="#" data-toggle="dropdown">
+                        Services
+                        <span>
+                            <svg width="10" height="10">
+                                <image href="/images/icons/down-arrow.svg" />
+                            </svg>
+                        </span>
+                    </a>
+                    <div class="nav-dot">
+                    </div>
+                    <partial name="_ServicesPartial" />
+                </li>
+
+                <li class="nav-item position-static d-flex flex-column align-items-center">
+                    <a class="nav-link" href="https://blogs.scycare.com/">Blogs</a>
+                    <div class="nav-dot"></div>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto d-flex align-items-center" id="right-side">
+                <li class="nav-item text-nowrap p-0" href="#">
+                    <div class="dropdown position-static d-flex flex-column align-items-center">
+                        <a class="nav-link" href="#" data-toggle="dropdown">
+                            Sign Up
+                            <span>
+                                <svg width="10" height="10">
+                                    <image href="/images/icons/down-arrow.svg" />
+                                </svg>
+                            </span>
+                        </a>
+                        <div class="nav-dot">
+                        </div>
+                        <partial name="_SignUpPartial"/>
+                    </div>
+                </li>
+
+                <li class="nav-item position-static btn ms-2 col-sm-6">
+                    <a class="nav-link" href="#" onclick="openMenu()">
+                        <img src="/images/icons/list-menu.svg" class="sc-icon">
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>

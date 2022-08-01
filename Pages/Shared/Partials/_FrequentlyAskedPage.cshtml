@@ -1,0 +1,145 @@
+﻿@using Scycare.Web.Pages.Models; 
+
+@{
+    var FrequentlyAskedQuestionsAccordionElement = new List<AccordionElement>{
+        new AccordionElement
+        {
+            Title ="How do I book online consultation",
+            Details =  "",
+        },
+        new AccordionElement
+        {
+            Title ="My Account Information",
+            Details =   "When you send email or other communications to us, we may retain those communications in order to process your requests and improve the quality of our services.",
+        },
+        new AccordionElement
+        {
+            Title ="How do I book online consultation",
+             Details ="Information such as creating entries, editing entries and uploading media to the App are collected automatically on our server when you access the App. As such, we may also request access to your device's camera in order for us to upload your media to the App. Any media uploaded , will be collected and stored on our servers. If you wish to change our access or permissions, you may do so in your device settings",
+        },
+        new AccordionElement
+        {
+            Title ="Billing",
+            Details =   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+    };
+ }
+
+
+
+    <section class="hero faq-hero" id="hom e-hero">
+        <div class="container">
+            
+            <h2 href="#" class="ml-3">
+                FAQs
+            </h2>
+        </div>
+    </section>
+    <div class="freequently-asked-questions container">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Frequently Asked questions</li>
+            </ol>
+        </nav>
+        <h6 class="mb-4 pb-4 faq-title">Frequently Asked Questions</h6>
+         <component type="typeof(Components.AccordionComponent)" param-AccordionElements=@FrequentlyAskedQuestionsAccordionElement render-mode="Static" />
+    </div>
+    
+    <div id="mobile-app" class="container main-section">
+        <div class="row">
+            <div class="col-md-8 mr-auto me-auto">
+                <h2>Fully access the uniqueness that comes with <span class="sc-text-secondary">Scycare</span></h2>
+                <ul class="feature-list">
+                    <li>Book same-day appointments</li>
+                    <li>Chat with your health team</li>
+                    <li>Prescriptions at your doorstep</li>
+                    <li>Reliable Healthcare</li>
+                    <li>Quality care at the comfort of your home</li>
+                </ul>
+                <div class="col">
+                    <h5>Be the first to get our mobile app</h5>
+                    <form action="">
+                        <div class="input-group sc-border-secondary phone-input">
+                            <span class="input-group-text">+233</span>
+                            <input type="tel" name="" id="" class="form-control">
+                        </div>
+                        <input type="submit" value="Text Me the App" class="btn sc-btn-secondary">
+                    </form>
+                    <p id="stores">AVAILABLE IN <a href="#">APP STORE</a> AND <a href="#">GOOGLE PLAYSTORE</a></p>
+                </div>
+            </div>
+            <div class="col-md-4 d-none d-md-block"><img src="./images/Phone.png" alt="mobile app" class="phone"></div>
+        </div>
+    </div>
+    <div id="partners" class="main-section">
+        <div class="row">
+            <img src="./images/icons/MOH.svg" alt="">
+            <img src="./images/icons/GHS.svg" alt="">
+            <img src="./images/icons/HeFRA.svg" style="width: 250px;" alt="">
+            <img src="./images/icons/MDC.svg" alt="">
+            <img src="./images/icons/PC.svg" alt="">
+        </div>
+    </div>
+    <div id="testimonials" class="main-section">
+        @* <img src="/images/icons/BGPattern.png" alt=""> *@
+        <div class="container">
+            <div class="col">
+                <h5>WHAT OUR PATIENTS ARE SAYING</h5>
+
+                <div class="owl-carousel owl-theme owl-loaded">
+                    <div class="owl-stage-outer">
+                        <div class="owl-stage">
+                            <div class="owl-item">
+                                <div class="col testionial-item">
+                                    <div class="row quote-icon">
+                                        <span>
+                                            <img src="./images/icons/quotes-left.svg" alt="">
+                                        </span>
+                                    </div>
+                                    <div class="row testimony">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis quo
+                                        quasi, sapiente
+                                        fuga
+                                        porro.
+                                    </div>
+                                    <div class="row testimonial-footer">
+                                        <span>
+                                            <div class="client-info">
+                                                <div>Drew Drew</div>
+                                                <div>Patient, Scycare</div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="col testionial-item">
+                                    <div class="row quote-icon">
+                                        <span>
+                                            <img src="./images/icons/quotes-left.svg" alt="">
+                                        </span>
+                                    </div>
+                                    <div class="row testimony">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore debitis quo
+                                        quasi, sapiente
+                                        fuga
+                                        porro.
+                                    </div>
+                                    <div class="row testimonial-footer">
+                                        <span>
+                                            <div class="client-info">
+                                                <div>Drew Drew</div>
+                                                <div>Patient, Scycare</div>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>

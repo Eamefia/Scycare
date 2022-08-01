@@ -1,0 +1,37 @@
+﻿@using Scycare.Web.Pages.Models;
+@model List<LabTestModel>
+
+
+<section class="hero" id="scylab-hero">
+    <div class="container">
+        <div id="hero-text" class="col">
+            <h1>
+                Understand your tests
+            </h1>
+            <p class="lead">
+                We are providing you with the important information about pathology tests to help you
+                manage your health and make the right decisions about your care.
+            </p>
+        </div>
+        <div id="hero-form-area">
+            <form action="" id="hero-form">
+                <input type="search" name="search-term" placeholder="Search"  id="search-term" onkeyup="search_tests()" />
+                
+                <select name="tests" id="tests" class="sc-selec ">
+                    @foreach (var item in Model)
+                    {
+                         <option value="@item.PackageName">@item.PackageName</option>
+                    }
+                   
+                </select>
+
+                <select name="conditions" id="conditions">
+                    <option value="volvo">Conditions</option>
+                </select>
+                <button href="#" class="ml-3 btn sc-bg-secondary">
+                    Search
+                </button>
+            </form>
+        </div>
+    </div>
+</section>

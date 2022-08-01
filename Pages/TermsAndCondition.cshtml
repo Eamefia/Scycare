@@ -1,0 +1,41 @@
+﻿@page
+@using Scycare.Web.Pages.Models
+@model Scycare.Web.Pages.TermsAndConditionModel
+
+@{
+    var TermsANdConditionElement = new List<AccordionElement>{
+        new AccordionElement
+        {
+            Title ="Terms And Conditions    ",
+            Details =  "We reserve the right to modify this policy or its terms and conditions. By using the app and services, you agree to be bound by this policy. If you do not agree to abide with the terms of this policy, you are not authorized to access or use this app and its  services.",
+        },
+        new AccordionElement
+        {
+            Title ="Customer and Membership Information",
+            Details =   "When you send email or other communications to us, we may retain those communications in order to process your requests and improve the quality of our services.",
+        },
+        new AccordionElement
+        {
+            Title ="Personal Data",
+             Details ="Information such as creating entries, editing entries and uploading media to the App are collected automatically on our server when you access the App. As such, we may also request access to your device's camera in order for us to upload your media to the App. Any media uploaded , will be collected and stored on our servers. If you wish to change our access or permissions, you may do so in your device settings",
+        },
+        new AccordionElement
+        {
+            Title ="Derivative data and uploading media",
+            Details =   "We collect and store all personal information related to your profile, which you give us voluntarily upon sign-up on the App. These information including  your (name, email, phone number, passwords, credit cards or payment information) is held in strict confidence and will not be sold or rented to any third party, but will be used only for the purpose of providing services described in the App"
+        },
+        new AccordionElement
+        {
+            Title ="Changes and amendments",
+            Details =    "We may collect information about you in various ways. The information we may collect via the App/ Web depends on the content and materials you use and includes"
+        }
+    };
+ }
+<component type="typeof(Components.PrivacyHeroComponent)" param-H1='"Terms and Conditions"' render-mode="Static" />
+    <section  class="container main-section">
+        <div class="container" id="policy-header-note">
+            <h2>Scycare Terms and Conditions</h2>
+                <p>Your privacy is important to Scycare  and we take our responsibility seriously to protect the data that you provide us in the normal course of interacting with our website and application. Therefore, we have developed the comprehensive privacy policy below to help you better understand what data we collect and how we use it.</p>
+                <component type="typeof(Components.AccordionComponent)" param-AccordionElements=@TermsANdConditionElement render-mode="Static" />
+        </div>
+    </section>

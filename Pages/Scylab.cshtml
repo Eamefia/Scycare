@@ -1,0 +1,114 @@
+@page
+@using Scycare.Web.Pages
+@model ScylabModel
+
+<div id="scylab">
+    <partial name="_ScylabHero" model="Model.labtests"/>
+
+    <section id="common-searches" class="container main-section">
+        <h2>Commonly Searched Lab Tests</h2>
+        <div class="row">
+            @foreach (var item in Model.labtests)
+            {
+                if (item.Id == "0")
+            {
+                <div class="cs-item">
+                <img src="./images/icons/FBC.svg" alt="">
+                <h5 class="item-name">Full Blood Count</h5>
+                <a asp-page="scylabtestdetails" asp-page-handler="labtest" asp-route-id="@item.Id" class="desc link">Lorem ipsum consectetur dolore sit magna aliqua.</a>
+                </div>
+            }
+            }
+            
+            
+            @foreach (var item in Model.labtests)
+            {
+                if (item.Id == "5")
+                {
+                     <div class="cs-item">
+                        <img src="./images/icons/liver.svg" alt="">
+                       <h5 class="item-name">@item.PackageName</h5>
+                       <a asp-page="scylabtestdetails" asp-page-handler="labtest" asp-route-id="@item.Id" class="desc link">Lorem ipsum consectetur dolore sit magna aliqua.</a>
+                    </div>
+                }
+            }
+           
+
+
+            @foreach (var item in Model.labtests)
+            {
+                if (item.Id == "1")
+                {
+                    <div class="cs-item">
+                      <img src="./images/icons/haemoglobin.svg" alt="">
+                      <h5 class="item-name">@item.PackageName</h5>
+                    <a asp-page="scylabtestdetails" asp-page-handler="labtest" asp-route-id="@item.Id" class="desc link">Lorem ipsum consectetur dolore sit magna aliqua.</a>
+                  </div>
+                }
+            }
+            
+
+            @foreach (var item in Model.labtests)
+            {
+                if (item.Id == "2")
+                {
+                     <div class="cs-item">
+                      <img src="./images/icons/thermometer.svg" alt="">
+                     <h5 class="item-name">@item.PackageName</h5>
+                     <a asp-page="scylabtestdetails" asp-page-handler="labtest" asp-route-id="@item.Id" class="desc link">Lorem ipsum consectetur dolore sit magna aliqua.</a>
+                   </div>
+                }
+            }
+           
+
+            @foreach (var item in Model.labtests)
+            {
+                if (item.Id == "10")
+                {
+                    <div class="cs-item">
+                       <img src="./images/icons/hepatitis.svg" alt="">
+                      <h5 class="item-name">Hepatitis B</h5>
+                      <a asp-page="scylabtestdetails" asp-page-handler="labtest" asp-route-id="@item.Id" class="desc link">Lorem ipsum consectetur dolore sit magna aliqua.</a>
+                   </div>
+                }
+            }
+            
+
+            
+            @foreach (var item in Model.labtests)
+            {
+                if (item.Id == "6")
+                {
+                     <div class="cs-item">
+                         <img src="./images/icons/cholesterol.svg" alt="">
+                       <h5 class="item-name">@item.PackageName</h5>
+                        <a asp-page="scylabtestdetails" asp-page-handler="labtest" asp-route-id="@item.Id" class="desc link">Lorem ipsum consectetur dolore sit magna aliqua.</a>
+                    </div>
+                }
+            }
+           
+        </div>
+
+        <div class="row ms-auto me-auto">
+            <button class="btn sc-button sc-bg-secondary" onclick="window.location.href = '/alllabtest'">View all Lab Tests</button>
+        </div>
+    </section>
+    <section id="learn-more-section">
+        <div class="container">
+            <h2>Learn More</h2>
+            <div class="accordions accordion">
+                <div class="accordion-item">
+                    <button class="accordion-title">Name</button>
+                    <div class="accordion-panel">
+                        <div class="panel-inner">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis repellat vitae repellendus
+                                officia a excepturi iure. Quibusdam iure fugit blanditiis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

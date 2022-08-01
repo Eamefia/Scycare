@@ -1,0 +1,56 @@
+﻿@page
+@model Scycare.Web.Pages.CovidPageModel
+@{
+}
+@using Scycare.Web.Pages.Models
+@using Scycare.Web.Services
+
+
+
+<component type="typeof(Components.CheckoutHeroComponent)"  render-mode="Static" />
+<div  class="container main-section" id="checkout-container">
+                <div class="container" id="policy-header-note">
+               
+     
+        <div class="flex flex3" id="corona-virus-page-title">
+            <h1>Find a testing centre near now</h1> 
+              
+        </div>
+       
+    
+        </div>
+            <div class="checkout-figuers flex flex3">
+            <lable id="total-test">@Model.GetTotalTestCenters() selected</lable>
+        </div>
+         <hr />
+   @foreach( CoronaVirusModel covidCenters in Model.TestCenters)
+   
+    {
+            <section class= "corona-viruspage-section">
+               <div id="test-center-container" class="grid-container">
+                   <div id="test-center" class="grid-item">
+                   @covidCenters.TestCenterName
+                   @covidCenters.TestCenterAddress
+                   @covidCenters.TestCenterPhone
+                   @covidCenters.TestCenterOpenningHours
+                   </div>
+                     <div id="test-center" class="grid-item">
+                    <p>Koforidua test center</p>
+                    <p>acton stree 22 cleveland</p>
+                    <p>02677882828</p>
+                    <p>monday-friday 10am to 18:30pm, saturday and sunday 08:00am to 14:00pm</p>
+                   </div>
+               </div>
+            </section>
+
+      
+}
+  
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+ 
+
+
+</script>
+

@@ -1,0 +1,376 @@
+﻿@page
+@model Scycare.Web.Pages.CheckoutPaymentModel
+@using Scycare.Web.Pages.Models
+ @Html.AntiForgeryToken()
+@{
+    ViewData["Title"] = "Checkout payment";
+}
+ @Html.AntiForgeryToken()
+
+<component type="typeof(Components.CheckoutHeroComponent)" render-mode="Static" />
+<div id="checkout-payment">
+    <div class="checkout-payment">
+
+        <span>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="sc-breadcrumb-item "><img src="./images/icons/home-icon.svg" alt=""><a href="/scylab">Home</a></li>
+                    <li class="breadcrumb-item checkout-breadcrumb"><a href="#"> </a></li>
+                    <li class="breadcrumb-item checkout-breadcrumb"><a href="/alllabtest">All Lab Tests</a></li>
+                    <li class="breadcrumb-item checkout-breadcrumb active" aria-current="page">Checkout</li>
+                </ol>
+            </nav>
+        </span>
+        <hr />
+        <div class="payment-details">
+            <div class="delivery-test-info">
+                <p class="delivery-options">Choose pickup/delivery</p>
+                <input type="checkbox" name="AreChecked" id="pickup" class="mycheckbox-pickup" value="Pickup Sample from Home" onchange="pickupAddress()">
+                <label for="pickup" class="pe-2 delivery-option">Pickup Sample from Home</label><br />
+                <div id="pickup-time"> </div><br />
+                <input type="checkbox" name="AreChecked" id="deliver" class="mycheckbox" value="Deliver Results to Home" onchange="pickupAddress()">
+                <label for="deliver" class="pe-2 delivery-option">Deliver Results to Home</label>
+                <div class="selected-test-details">
+                    <p class="delivery-test-category">Order Summary</p>
+                    <div class="d-flex pt-3">
+                        <sub class="sub-ghs">GHS</sub><h2 id="final-price" class="selected-labtest-price">@Model.GetPriceSum()</h2><sup class="labtest-price-decimal">.00</sup>
+                    </div>
+                    <p class="delivery-test-category pt-3">Breakdown</p>
+                    @foreach (LabTestModel Item in Model.CheckoutItems)
+                    {
+                        <input type="hidden" id="test-price" class="test-price" value="@Item.Price" />
+                        <div class="d-flex justify-content-between checkout-labtest-info">
+                            <p id="package-name" class="checkout-labtest-property">@Item.PackageName</p>
+                            <p class="checkout-labtest-property">@Item.Price</p>
+                        </div>
+                    }
+                    <div id="pickup-price" class="justify-content-between checkout-labtest-info" style="display: none">
+                        <p class="checkout-labtest-property">Pickup Cost</p>
+                        <p class="checkout-labtest-property">10.00</p>
+                    </div>
+                    <div id="delivery-price" class="justify-content-between checkout-labtest-info" style="display: none">
+                        <p class="checkout-labtest-property">Delivery Cost</p>
+                        <p class="checkout-labtest-property">10.00</p>
+                    </div>
+                    <div id="total-cost" class="justify-content-between checkout-labtest-total" style="display: none">
+                        <p class="checkout-labtest-property">Total Cost</p>                     
+                            <p id="billing" class="checkout-labtest-property"> </p>                      
+                    </div>
+
+                </div>
+            </div>
+            <div class="delivery-accordion-payment">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="colored-accordioon accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                1. Enter Billing Contact
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <form method="post">
+                                    <input type="text" id="name" class="form-control" asp-for="paymentDetails.Name" placeholder="Full name">
+                                    <input type="text" id="email-address" asp-for="paymentDetails.Email" class="form-control mt-3" placeholder="Email">
+                                    <textarea class="form-control mt-3" placeholder="Address" id="floatingTextarea"></textarea>
+                                    <input type="text" id="city-town" class="form-control mt-3" placeholder="City/Town">
+                                    <input type="hidden" asp-for="paymentDetails.Amount" id="amount" />
+                                    <input id="submitpaydetails" type="submit" class="mt-3" hidden />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item pickup-accodion">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="colored-accordioon accordion-button collapsed" id="pickup-address-btn" style="display:none;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <form id="pickup-form">
+                                <input type="date" id="date" class="form-control mt-3" placeholder="Select Date*">
+                                <textarea id="pickup-address" class="form-control mt-3" placeholder="Address"></textarea>
+                                <input type="text" id="pickup-city" class="form-control mt-3 mb-3" placeholder="City/Town">
+                                <div id="confirm-details-error"> </div>
+                                <input type="checkbox" name="AreChecked" id="same-billing" class="same-billing mt-2" value="Same as billing details" onchange="sameAsBilling()">
+                                <label for="same-billing" id="confirm-details" class="pe-2">Same as billing details</label>
+                                
+                                <div class="d-flex mt-4 pb-2">
+                                    <button type="button" class="btn pickup-save me-2" onclick="saveDetails()">Save</button>
+                                    <button type="button" class="btn pickup-cancel" onclick="resetPickupForm()">Clear</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item delivery-accodion">
+                        <h2 class="accordion-header" id="heading4">
+                            <button class="colored-accordioon accordion-button collapsed" id="delivery-address-btn" style="display:none;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                               <form id="delivery-form">
+                                <textarea id="delivery-address" class="form-control mt-3" placeholder="Address"></textarea>
+                                <input type="text" id="delivery-city" class="form-control mt-3 mb-3" placeholder="City/Town">
+                                <div id="confirm-details-error"> </div>
+                                <input type="checkbox" name="AreChecked" id="delivery-details" class="mt-2" value="Same as billing details" onchange="sameAsBilling()">
+                                <label for="delivery-details" id="confirm-details" class="pe-2">Same as billing details</label>
+                                <div class="d-flex mt-4 pb-2">
+                                    <button type="button" class="btn pickup-save me-2" onclick="saveDetails()">Save</button>
+                                    <button type="button" class="btn pickup-cancel" onclick="resetDeliveryForm()">Clear</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed colored-accordioon" id="select-payment-method" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                2. Complete Payment
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="payment-options">
+                                    <img src="./images/Paystack-paymentImg.svg" alt="paystack" />
+                                    <div id="confirm-payment-error"></div>
+                                    <input type="checkbox" id="confirm-payment-details" class="confirm-details mt-2" value="1" required="required" onchange="removeConfirmError()">
+                                    <label id="confirm-details" for="confirm-payment-details" class="pe-2">Confirm that all details entered are correct</label>
+                                    <div class="d-flex mt-4">
+                                        <button type="button" style="background:#00C2E7; color: white;" class="btn place-order me-2" onclick="payWithPaystack()">Place order</button>
+                                        <button type="button" style="border-color:#00C2E7; color:#00C2E7;" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Cancel order</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to cancel this order ?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                <button type="button" class="btn btn-primary" onclick="goToAllLabTest()">Yes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+ </div>
+
+<script type="text/javascript">
+             document.addEventListener("DOMContentLoaded", function(){
+                     var testPrice = document.getElementsByClassName("test-price"),
+
+                name = document.getElementById("package-name");
+                totalPrice = 20;
+                deliveryPickupCost = 10;
+                testsTotalCost = 0;
+                pickupCheckbox = document.getElementById("pickup");
+                addressCheckbox = document.getElementById("deliver");
+
+                for (var i=0; i<testPrice.length; i++){
+                        var price = parseFloat(testPrice[i].value, 10);
+                        totalPrice += price;
+                        deliveryPickupCost += price;
+                        testsTotalCost += price;
+
+                }
+                document.getElementById("final-price").innerHTML = testsTotalCost;
+               document.getElementById("amount").value = testsTotalCost;
+
+
+               if(!pickupCheckbox.checked && !addressCheckbox.checked){
+            document.getElementById("final-price").innerHTML = testsTotalCost;
+            document.getElementById("amount").value = testsTotalCost;
+
+        }
+        if (pickupCheckbox.checked && addressCheckbox.checked == false){
+               document.getElementById("final-price").innerHTML = deliveryPickupCost;
+               document.getElementById("billing").innerHTML = deliveryPickupCost;
+               document.getElementById("amount").value = deliveryPickupCost;
+              
+           }
+           else if (addressCheckbox.checked && pickupCheckbox.checked == false){
+              document.getElementById("finaltest-price").innerHTML = deliveryPickupCost;
+              document.getElementById("billing").innerHTML = deliveryPickupCost.toFixed(2);
+              document.getElementById("amount").value = deliveryPickupCost;
+              
+           }
+           else if (addressCheckbox.checked && pickupCheckbox.checked){
+              document.getElementById("final-price").innerHTML = totalPrice;
+              document.getElementById("billing").innerHTML = totalPrice.toFixed(2);
+              document.getElementById("amount").value = totalPrice;
+           }
+
+                });
+    function pickupAddress()
+    {
+        var testPrice = document.getElementsByClassName("test-price"),
+        
+        name = document.getElementById("package-name");
+        totalPrice = 20;
+        deliveryPickupCost = 10;
+        testsTotalCost = 0;
+        pickupCheckbox = document.getElementById("pickup");
+        addressCheckbox = document.getElementById("deliver");
+
+        console.log(testPrice.length);
+
+        for (var i=0; i<testPrice.length; i++){
+                var price = parseFloat(testPrice[i].value, 10);
+                totalPrice += price;
+                deliveryPickupCost += price;
+                testsTotalCost += price;
+            
+        }
+        
+
+        if(pickupCheckbox.checked == false){
+            document.getElementById("pickup-address-btn").style.display= "none";
+            document.getElementById("pickup-price").style.display = "none";
+        }
+        if(addressCheckbox.checked == false){
+            document.getElementById("delivery-address-btn").style.display= "none";
+           document.getElementById("delivery-price").style.display = "none";
+        }
+        if(!pickupCheckbox.checked && !addressCheckbox.checked){
+            document.getElementById("select-payment-method").innerHTML = "2. Complete Payment";
+            document.getElementById("final-price").innerHTML = testsTotalCost;
+            document.getElementById("amount").value = testsTotalCost;
+             document.getElementById("total-cost").style.display = "none";
+
+        }
+        if (pickupCheckbox.checked && addressCheckbox.checked == false){
+              document.getElementById("pickup-address-btn").style.display= "";
+              document.getElementById("pickup-address-btn").innerHTML = "2. Enter Pick Up Address";
+              document.getElementById("select-payment-method").innerHTML = "3. Complete Payment";
+              document.getElementById("pickup-price").style.display = "flex";
+               document.getElementById("total-cost").style.display = "flex";
+               document.getElementById("final-price").innerHTML = deliveryPickupCost;
+               document.getElementById("billing").innerHTML = deliveryPickupCost.toFixed(2);
+               document.getElementById("amount").value = deliveryPickupCost;
+              
+           }
+           else if (addressCheckbox.checked && pickupCheckbox.checked == false){
+               document.getElementById("delivery-address-btn").style.display= "";
+              document.getElementById("delivery-address-btn").innerHTML = "2. Enter Delivery Address";
+              document.getElementById("select-payment-method").innerHTML = "3. Complete Payment";
+              document.getElementById("delivery-price").style.display = "flex";
+              document.getElementById("total-cost").style.display = "flex";
+              document.getElementById("finaltest-price").innerHTML = deliveryPickupCost;
+              document.getElementById("billing").innerHTML = deliveryPickupCost.toFixed(2);
+              document.getElementById("amount").value = deliveryPickupCost;
+              
+           }
+           else if (addressCheckbox.checked && pickupCheckbox.checked){
+                document.getElementById("pickup-address-btn").style.display= "";
+               document.getElementById("delivery-address-btn").style.display= "";
+              document.getElementById("delivery-address-btn").innerHTML = "3. Enter Delivery Address";
+              document.getElementById("pickup-address-btn").innerHTML = "2. Enter Pick Up Address";
+              document.getElementById("select-payment-method").innerHTML = "4. Complete Payment";
+             document.getElementById("pickup-price").style.display = "flex";
+             document.getElementById("delivery-price").style.display = "flex";
+              document.getElementById("total-cost").style.display = "flex";
+              document.getElementById("final-price").innerHTML = totalPrice;
+              document.getElementById("billing").innerHTML = totalPrice.toFixed(2);
+              document.getElementById("amount").value = totalPrice;
+           }
+
+    }
+    
+    function payWithPaystack(){
+        var confirm = document.getElementById("confirm-payment-details");
+        if(confirm.checked){
+            document.getElementById("submitpaydetails").click();
+        }
+        else {
+           document.getElementById("confirm-payment-error").innerHTML = "Confirm your payment details";
+        }
+    }
+
+    function goToAllLabTest(){
+       window.location.href = "/alllabtest";
+    }
+    function removeConfirmError(){
+         var confirm = document.getElementById("confirm-payment-details");
+          if(confirm.checked){
+           document.getElementById("confirm-payment-error").style.display = "none";
+          }
+        
+       
+    }
+
+
+function saveDetails(){
+    var date = document.getElementById("date").value;
+         var address = document.getElementById("pickup-address").value;
+         var city = document.getElementById("pickup-city").value;
+        var pickupaddres = [ date,  address, city ];
+
+        if(address.length > 0 && city.length > 0){
+            $.ajax({
+              type: "POST",
+              beforeSend: function (xhr) {
+         xhr.setRequestHeader("XSRF-TOKEN",
+             $('input:hidden[name="__RequestVerificationToken"]').val());
+     },
+              url: "/checkoutpayment" + "?handler=AddAddress",
+              contentType: 'application/json; charset=utf-8',
+              data: JSON.stringify(pickupaddres),
+              success: function (data) {
+                  document.getElementById("pickup-time").innerHTML = "Your sample is scheduled for pick up within the 24 hours.";
+              }
+          });
+        }else{
+            document.getElementById("confirm-details-error").innerHTML = "No details added";
+        }
+}
+
+function sameAsBilling(){
+   var address = document.getElementById("floatingTextarea"),
+       cityTown = document.getElementById("city-town");
+       pickupCity = document.getElementById("pickup-city");
+       pickupaddress = document.getElementById("pickup-address");
+        deliveryCity = document.getElementById("delivery-city");
+       deliveryAddress = document.getElementById("delivery-address");
+       pickupSameDetails = document.getElementById("same-billing");
+       deliveryDeatils = document.getElementById("delivery-details");
+       
+       if(address.value.length > 0 && cityTown.value.length > 0){
+           if(pickupSameDetails.checked == true){
+               pickupaddress.value = address.value;
+               pickupCity.value = cityTown.value;
+               document.getElementById("confirm-details-error").style.display ="none";
+           }
+           if(deliveryDeatils.checked == true){
+               deliveryAddress.value = address.value;
+               deliveryCity.value = cityTown.value;
+               document.getElementById("confirm-details-error").style.display ="none";
+           }
+       }else {
+           document.getElementById("confirm-details-error").innerHTML = "No billing details added";
+       }
+
+}
+function resetPickupForm() {
+  document.getElementById("pickup-form").reset();
+}
+
+function resetDeliveryForm() {
+  document.getElementById("delivery-form").reset();
+}
+
+</script>
+
+

@@ -1,0 +1,70 @@
+<div id="fly-out" class="">
+    <div id="menu-header">
+        <a class="navbar-brand" asp-area="" asp-page="/Index">
+            @*<svg>
+                    <image href="/images/scycare-logo-dark.svg" />
+                </svg>*@
+            <img src="/images/scycare-logo-dark.png" alt="">
+        </a>
+        <a id="btn-close" class="btn" onclick="closeMenu()">&times;</a>
+    </div>
+    <div id="menu-main">
+        <p>MY SCYCARE ACCOUNT</p>
+        <div id="account-buttons" class="d-flex">
+            <button class="sc-btn sc-btn-primary">Log In</button>
+            <button class="sc-btn sc-btn-gray ml-3">Sign Up</button>
+        </div>
+        <ul id="menu-items" class="">
+            <li><a href="#">Online Consultation</a></li>
+            <li><a href="#">ScyLab</a></li>
+            <li><a href="#">ScyMed</a></li>
+            <li><a href="#">Continuous Monitoring</a></li>
+            <li><a href="#">Coronavirus</a></li>
+            <li><a href="#">Blogs</a></li>
+        </ul>
+        <p id="email-sent-notification"></p>
+        <form id="subscribe-form" method="post">
+            <div class="input-group mb-3">
+                <input type="email" name="subscribe" placeholder="Email Address" id="getapp-email-address" class="form-control"
+                       aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="sc-btn sc-btn-primary" type="button" onclick="emailMeApp()">Email me the App</button>
+                </div>
+            </div>
+        </form>
+
+        <ul id="menu-socials" class="">
+            <li><a target="_blank" href="https://web.facebook.com/scycare1/"><img src="/images/icons/facebook.svg" alt="facebook icon"></a></li>
+            <li><a target="_blank" href="https://twitter.com/scycare"><img src="/images/icons/twitter.svg" alt="twitter icon"></i></a></li>
+            <li><a target="_blank" href="https://www.instagram.com/scycare/"><img src="/images/icons/instagram.svg" alt="instagram icon"></i></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/company/scycare"><img src="/images/icons/linkedin.svg" alt="linkedin icon"></i></a></li>
+            <li><a target="_blank" href="https://www.youtube.com/channel/UCFo_MHVelQQ9CAGgGXGmjJg"><img src="/images/icons/youtube.svg" alt="youtube icon"></i></a></li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.0.20/tinymce.min.js"></script>
+   <script src="https://smtpjs.com/v3/smtp.js"></script>
+  
+  <script type="text/javascript">
+    function emailMeApp() {  
+      var emailAddress = document.getElementById("getapp-email-address").value;
+      Email.send({
+        Host: "smtp.gmail.com",
+        Username: "rockbrain700@gmail.com",
+        Password: "rkvhwxsopzngcvov",
+        To:"scycare@gmail.com",
+        From:emailAddress,
+        Subject: "Text Me The App",
+       
+        Body: `ScycareUser <br/><br/> Email: ${emailAddress}`,
+       
+      })    
+        .then(function () {
+        document.getElementById("subscribe-form").reset();
+        document.getElementById("email-sent-notification").innerHTML = "Scycare has successfully added your email address";
+        });
+        
+
+    }
+</script>

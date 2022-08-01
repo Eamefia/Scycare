@@ -1,0 +1,196 @@
+﻿@page
+@model Scycare.Web.Pages.AllLabTestModel
+@using Scycare.Web.Services
+
+@{
+    ViewData["Title"] = "All Lab Test";
+}
+
+<div id="all-lap-test">
+     <partial name="_ScylabHero" model="Model.labtests"/>
+     <div class="freequently-asked-questions container pb-2 mt-5">
+     <div id="content-head">
+            <nav  aria-label="breadcrumb">
+                <ol class="sc-breadcrumb">
+                    <li class="sc-breadcrumb-item"><a href="/scylab">Home</a></li>
+                     <li class="sc-breadcrumb-item"><a href="#">All lab test</a></li>
+
+                </ol>
+            </nav>
+
+        </div>
+
+        <div class="mb-4 d-flex justify-content-between">
+               <h6 class="faq-title">All Lab Test</h6>
+                <button class="btn sc-button sc-bg-secondary" id="checkout"  onclick="sendLabTestDetails()">Go to Checkout</button>
+        </div>
+     <div class="d-flex align-items-center">
+         <small class="selected pe-2"> <span id='checkboxSelected'>0</span> lab selected |</small> 
+         <span id="total-price" class="selected-price">GHC 0</span><span class="selected-price">.00</span>
+     </div>
+<div class="container">
+<div class="accordion row" id="accordionExample">
+     @foreach( var test in Model.groupedByLetter)
+                        {
+  <div class="accordion-item pa-accordion-box col-4">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed pa-accordion-icon-left" type="button" data-bs-toggle="collapse" data-bs-target="#@test.Key" aria-expanded="true" aria-controls="@test.Key">
+        @test.Key
+      </button>
+    </h2>
+    <div id="@test.Key" class="accordion-collapse collapse labtest-items" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body"> 
+          @foreach (var item in test)
+          {
+             
+           
+              if (item.PackageName[0] == item.PackageName[0])
+              {
+                  if (Model.CheckoutItems != null && Model.CheckoutItems.Contains(item))
+                  {
+                      <input type="hidden" name="__RequestVerificationToken" class="mycheckedPrice" value="@item.Price">
+                  <input type="checkbox" name="AreChecked" id="@item.Id" class="mycheckbox" value="@item.Id" onchange="checkboxes()" checked >
+                                            <label for="@item.Id" class="labtest-name">@item.PackageName</label>
+                                            <span  id="test-price" class="labtest-price ps-2">GHc</span>
+                                            <span  id="test-price" class="labtest-price ps-1">@item.Price</span><br /><br />
+                                        }
+                                        else
+                                        {
+                                            
+                      <input type="hidden" name="__RequestVerificationToken" class="mycheckedPrice" value="@item.Price">
+                  <input type="checkbox" name="AreChecked" id="@item.Id" class="mycheckbox" value="@item.Id" onchange="checkboxes()">
+                                            <label for="@item.Id" class="labtest-name">@item.PackageName</label>
+                                            <span  id="test-price" class="labtest-price ps-2">GHc</span>
+                                            <span  id="test-price" class="labtest-price ps-1">@item.Price</span><br />
+                                        }
+
+              }
+              
+          }
+        
+      </div>
+    </div>
+  </div>
+  }
+</div>
+</div>
+</div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function(){
+             var inputElems = document.getElementsByClassName("mycheckbox"),
+           inputPrice = document.getElementsByClassName("mycheckedPrice");
+            count = 0;
+            totalPrice = 0.00;
+            var checkedValues = [];
+
+            for (var i=0; i<inputElems.length; i++) {
+               if (inputElems[i].type == "checkbox" && inputElems[i].checked == true){
+                  count++;
+                  var price = parseFloat(inputPrice[i].value);
+                  totalPrice += price;
+                  checkedValues.push(inputElems[i].value)
+               }
+
+            }
+
+            document.getElementById("checkboxSelected").innerHTML = count;
+            document.getElementById("total-price").innerHTML = totalPrice;
+            sessionStorage.setItem("TheLabTestIds", JSON.stringify(checkedValues));
+
+        });
+         function checkboxes()
+      {     
+       var inputElems = document.getElementsByClassName("mycheckbox"),
+       inputPrice = document.getElementsByClassName("mycheckedPrice");
+        count = 0;
+        totalPrice = 0.00;
+        var checkedValues = [];
+
+        for (var i=0; i<inputElems.length; i++) {       
+           if (inputElems[i].type == "checkbox" && inputElems[i].checked == true){
+              count++;
+              var price = parseFloat(inputPrice[i].value);
+              totalPrice += price;
+              checkedValues.push(inputElems[i].value)
+           }
+
+        }
+
+        document.getElementById("checkboxSelected").innerHTML = count;
+        document.getElementById("total-price").innerHTML = totalPrice;   
+        sessionStorage.setItem("TheLabTestIds", JSON.stringify(checkedValues));
+     }
+
+
+     function search_tests()
+     {
+        let input = document.getElementById("search-term").value
+	input=input.toLowerCase();
+	let x = document.getElementsByClassName('pa-accordion-icon-left');
+	
+	for (i = 0; i < x.length; i++) {
+		if (!x[i].innerHTML.toLowerCase().includes(input)) {
+			x[i].style.display="none";
+		}
+		else {
+			x[i].style.display="";			
+		}
+	}
+     }
+
+
+      function search_tests()
+     {
+        let input = document.getElementById("search-term").value
+	input=input.toLowerCase();
+	let x = document.getElementsByClassName('pa-accordion-icon-left');
+	
+	for (i = 0; i < x.length; i++) {
+		if (!x[i].innerHTML.toLowerCase().includes(input)) {
+			x[i].style.display="none";
+		}
+		else {
+			x[i].style.display="";			
+		}
+	}
+     }  
+
+
+     function sendLabTestDetails()
+      {   
+       var inputElems = document.getElementsByClassName("mycheckbox");
+        var checkedValues = [];
+        let data = checkboxes.toString();
+
+        for (var i=0; i<inputElems.length; i++) {
+
+           if (inputElems[i].type == "checkbox" && inputElems[i].checked == true){
+               checkedValues.push(inputElems[i].value)
+           }
+
+        }
+
+
+
+         fetch('/api/Checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(checkedValues),
+    })
+    .then(data => {
+      window.location.href = "/checkoutpage";
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
+}
+
+     
+</script>

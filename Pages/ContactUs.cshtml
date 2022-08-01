@@ -1,0 +1,170 @@
+﻿@page
+@model Scycare.Web.Pages.ContactUsModel
+@{
+    ViewData["Title"]="Contact Us";
+}
+<div class="hero" id="contact-hero">
+
+    <p class="contact-support-text">Contact Support</p>
+@*
+    
+    <div class="cu-search-container">
+       <form method="get">
+           <div class="form-row p-4 d-flex">
+               <div class="form-group me-2 col-md-10 ">
+                  
+                    <div class="dropdown">
+                      <div id="myDropdown" class="dropdown-content">
+                        <input type="text" class="form-control search-area" placeholder="Search here" id="myInput" onkeyup="filterFunction()"/> 
+                        <a href="#about">About</a>
+                        <a href="#base">Base</a>
+                        <a href="#blog">Blog</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#custom">Custom</a>
+                        <a href="#support">Support</a>
+                        <a href="#tools">Tools</a>
+                      </div>
+                </div>
+               </div>
+               <div class="form-group col-md-2">
+                   <button class="btn submit-btn" type="submit">Search</button>
+               </div>
+               
+           </div>
+       </form>
+    </div>*@
+
+</div>
+
+<section class="cu-main-content">
+
+    <p class="hw-help-text">How can we help you?</p>
+    <p class="hw-sub-text">Do you have any questions about your doctor's appointment, prescriptions, 
+        laboratory and other issues? Our support is there for you!</p>
+
+    <div class="section-for-form ">
+
+        <div class="row gx-5">
+
+            <div class="col-md-4 s-m-wrapper">
+                   <h2>
+                        Send us a <br /> <span class="mess-text">message</span>
+                   </h2>   
+            </div>
+
+            <div class="col-md-8">
+   
+  <form method="post" id="newForm" name ="myForm">
+    <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="text"  class="form-control cu-txt-field name" id="name-txt" placeholder="Your Name"  name="fName" >
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control cu-txt-field phone" id="phone-txt" placeholder="Your Phone" name="fPhone">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control cu-txt-field email" id="email-txt" placeholder="Your Email" name="fEmail">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <textarea class="form-control cu-text-area body" id="body-txt" rows="4" placeholder="Your Message" name="fMessage" ></textarea>
+                    </div>
+                            
+                        <div class="form-group">
+                            <input type="button" class="btn cu-sb-btn" value="Send" onclick="sendEmail()" />
+                        </div>
+                        <p style="text-align:center; margin-top:1rem; font-size:24px;" id="submit-message" class="alert-success"></p>
+                </div>
+
+            </div>
+    
+  </form>
+                        
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.0.20/tinymce.min.js"></script>
+   <script src="https://smtpjs.com/v3/smtp.js"></script>
+  
+  <script type="text/javascript">
+      
+    //Get input fields
+    var Sname = document.querySelector('#name-txt');
+    var phone =  document.querySelector('#phone-txt');
+    var email =   document.querySelector('#email-txt');
+    var body =   document.querySelector('#body-txt');
+    function sendEmail() {
+        let x = document.forms["myForm"]["fName"].value;
+         let y = document.forms["myForm"]["fPhone"].value;
+          let z = document.forms["myForm"]["fEmail"].value;
+           let q = document.forms["myForm"]["fMessage"].value;
+          
+              if (x == "") {
+                alert("Name must be filled out");
+                return false;
+              }
+               if (y == "") {
+                alert("Phone number must be filled out");
+                return false;
+              }
+                 if (z == "") {
+                alert("Email must be filled out");
+                return false;
+              }
+                
+                if (q == "") {
+                alert("Message must be filled out");
+                return false;
+                }
+
+      Email.send({
+        Host: "smtp.gmail.com",
+        Username: "rockbrain700@gmail.com",
+        Password: "rkvhwxsopzngcvov",
+        To:"rockbrain700@gmail.com",
+        From:`${email.value}`,
+        Subject: "Scycare Contact Form",
+       
+        Body: `${ body.value} <br/><br/> Name: ${ Sname.value } <br/>Email: ${ email.value} <br/> Phone: ${ phone.value}`,
+       
+      })
+     
+        .then(function () {
+        document.getElementById("newForm").reset();
+        document.getElementById("submit-message").innerHTML = "Thank you for your enquiries";
+        });
+        
+
+    }
+
+
+
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
+  }
+}
+
+
+  </script>
+
+
+
